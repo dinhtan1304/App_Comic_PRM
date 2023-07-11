@@ -39,23 +39,19 @@ import java.util.ArrayList;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chap);
         init();
-        anhXa();
+        bindingView();
         setUp();
-        setClick();
+        bindingAction();
         new ApiChapTruyen(this,truyenTranh.getId()).execute();
     }
     private void init(){
         Bundle b = getIntent().getBundleExtra("data");
         truyenTranh= (TruyenTranh) b.getSerializable("truyen");
-        //fix cung
         arrChap = new ArrayList<>();
-//        for (int i=0;i<20;i++){
-//            arrChap.add(new ChapTruyen("Chap" + i,"03-07-2023"));
-//        }
-//        chapTruyenAdapter = new ChapTruyenAdapter(this,0,arrChap);
+
 
     }
-    private void anhXa(){
+    private void bindingView(){
         imgAnhTruyens = findViewById(R.id.imgAnhTruyens);
         txvTenTruyens = findViewById(R.id.txvTenTruyens);
         lsvDanhSachChap = findViewById(R.id.lsvDanhSachChap);
@@ -64,10 +60,10 @@ import java.util.ArrayList;
     private void setUp(){
         txvTenTruyens.setText(truyenTranh.getTenTruyen());
         Glide.with(this).load(truyenTranh.getLinkAnh()).into(imgAnhTruyens);
-    //    lsvDanhSachChap.setAdapter(chapTruyenAdapter);
+
 
     }
-    private void setClick(){
+    private void bindingAction(){
         lsvDanhSachChap.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

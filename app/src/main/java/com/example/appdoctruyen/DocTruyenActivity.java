@@ -29,9 +29,9 @@ public class DocTruyenActivity extends AppCompatActivity implements LayAnhVe {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc_truyen);
         init();
-        anhXa();
+        bindingView();
         setUp();
-        setClick();
+        bindingAction();
         new ApiLayAnh(this,idChap).execute();
     }
     public void init(){
@@ -39,7 +39,7 @@ public class DocTruyenActivity extends AppCompatActivity implements LayAnhVe {
         idChap= b.getString("idChap");
 
     }
-    public void anhXa(){
+    public void bindingView(){
 
         imgAnh =findViewById(R.id.imgAnh);
         txvSoTrang =findViewById(R.id.txvSoTrang);
@@ -48,7 +48,7 @@ public class DocTruyenActivity extends AppCompatActivity implements LayAnhVe {
     public void setUp(){
 //        docTheoTrang(0);
     }
-    public void setClick(){
+    public void bindingAction(){
 
     }
     public void right(View view){

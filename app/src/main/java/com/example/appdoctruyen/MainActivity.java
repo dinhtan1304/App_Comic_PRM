@@ -35,28 +35,16 @@ public class MainActivity extends AppCompatActivity implements LayTruyenVe {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        anhXa();
+        bindingView();
         setUp();
-        setClick();
+        bindingAction();
         new ApiLayTruyen(this).execute();
     }
     private void init(){
         truyenTranhArrayList = new ArrayList<>();
-//        truyenTranhArrayList.add(new TruyenTranh("Con Trai Út Của Gia Đình Kiếm Thuật","Chapter 79","https://st.nettruyenmax.com/data/comics/202/con-trai-ut-cua-gia-dinh-kiem-thuat-danh-3180.jpg"));
-//        truyenTranhArrayList.add(new TruyenTranh("Ta Trời Sinh Đã Là Nhân Vật Phản Diện","Chapter 91","https://st.nettruyenmax.com/data/comics/235/ta-troi-sinh-da-la-nhan-vat-phan-dien-3659.jpg"));
-//        truyenTranhArrayList.add(new TruyenTranh("Mở Đầu Nữ Đế Làm Chính Cung","Chapter 184","https://st.nettruyenmax.com/data/comics/235/mo-dau-nu-de-lam-chinh-cung.jpg"));
-//        truyenTranhArrayList.add(new TruyenTranh("Người Trên Vạn Người","Chapter 238","https://st.nettruyenmax.com/data/comics/208/nguoi-tren-van-nguoi.jpg"));
-//        truyenTranhArrayList.add(new TruyenTranh("Con Trai Út Của Gia Đình Kiếm Thuật","Chapter 79","https://st.nettruyenmax.com/data/comics/202/con-trai-ut-cua-gia-dinh-kiem-thuat-danh-3180.jpg"));
-//        truyenTranhArrayList.add(new TruyenTranh("Ta Trời Sinh Đã Là Nhân Vật Phản Diện","Chapter 91","https://st.nettruyenmax.com/data/comics/235/ta-troi-sinh-da-la-nhan-vat-phan-dien-3659.jpg"));
-//        truyenTranhArrayList.add(new TruyenTranh("Mở Đầu Nữ Đế Làm Chính Cung","Chapter 184","https://st.nettruyenmax.com/data/comics/235/mo-dau-nu-de-lam-chinh-cung.jpg"));
-//        truyenTranhArrayList.add(new TruyenTranh("Người Trên Vạn Người","Chapter 238","https://st.nettruyenmax.com/data/comics/208/nguoi-tren-van-nguoi.jpg"));truyenTranhArrayList.add(new TruyenTranh("Con Trai Út Của Gia Đình Kiếm Thuật","Chapter 79","https://st.nettruyenmax.com/data/comics/202/con-trai-ut-cua-gia-dinh-kiem-thuat-danh-3180.jpg"));
-//        truyenTranhArrayList.add(new TruyenTranh("Ta Trời Sinh Đã Là Nhân Vật Phản Diện","Chapter 91","https://st.nettruyenmax.com/data/comics/235/ta-troi-sinh-da-la-nhan-vat-phan-dien-3659.jpg"));
-//        truyenTranhArrayList.add(new TruyenTranh("Mở Đầu Nữ Đế Làm Chính Cung","Chapter 184","https://st.nettruyenmax.com/data/comics/235/mo-dau-nu-de-lam-chinh-cung.jpg"));
-//        truyenTranhArrayList.add(new TruyenTranh("Người Trên Vạn Người","Chapter 238","https://st.nettruyenmax.com/data/comics/208/nguoi-tren-van-nguoi.jpg"));
-
         adapter = new TruyenTranhAdapter(this,0,truyenTranhArrayList);
     }
-    private void anhXa(){
+    private void bindingView(){
         gdvDSTruyen = findViewById(R.id.gdvDSTruyen);
         edtTimKiem = findViewById(R.id.edtTimKiem);
 
@@ -64,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements LayTruyenVe {
     private void setUp(){
         gdvDSTruyen.setAdapter(adapter);
     }
-    private void setClick(){
+    private void bindingAction(){
         edtTimKiem.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
